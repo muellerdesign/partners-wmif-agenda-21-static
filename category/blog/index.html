@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.init={privacy:{cookies_enabled:true}};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var i,o=t("ee"),a=t(24),c={};try{i=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,i.indexOf("dev")!==-1&&(c.dev=!0),i.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&o.on("internal-error",function(t){r(t.stack)}),c.dev&&o.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,c){try{p?p-=1:i(c||new UncaughtException(t,e,n),!0)}catch(f){try{o("ierr",[f,s.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function i(t,e){var n=e?null:s.now();o("err",[t,n])}var o=t("handle"),a=t(25),c=t("ee"),s=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(9),t(8),"addEventListener"in window&&t(5),s.xhrWrappable&&t(10),d=!0)}c.on("fn-start",function(t,e,n){d&&(p+=1)}),c.on("fn-err",function(t,e,n){d&&!n[l]&&(f(n,l,function(){return!0}),this.thrown=!0,i(n))}),c.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),c.on("internal-error",function(t){o("ierr",[t,s.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var i=t("ee"),o=t("handle"),a=t(9),c=t(8),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(7),"addEventListener"in window&&t(5);var x=NREUM.o.EV;i.on(m,function(t,e){var n=t[0];n instanceof x&&(this.bstStart=y.now())}),i.on(w,function(t,e){var n=t[0];n instanceof x&&o("bst",[n,e,this.bstStart,y.now()])}),a.on(m,function(t,e,n){this.bstStart=y.now(),this.bstType=n}),a.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),this.bstType])}),c.on(m,function(){this.bstStart=y.now()}),c.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),"requestAnimationFrame"])}),i.on(g+p,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),i.on(g+h,function(t){o("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&i(e)}function i(t){c.inPlace(t,[u,d],"-",o)}function o(t,e){return t[1]}var a=t("ee").get("events"),c=t("wrap-function")(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(i(window),i(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=o(arguments),e={};i.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var c=r.apply(this,t);return i.emit(n+"start",[t,a],c),c.then(function(t){return i.emit(n+"end",[null,t],c),t},function(t){throw i.emit(n+"end",[t],c),t})})}var i=t("ee").get("fetch"),o=t(25),a=t(24);e.exports=i;var c=window,s="fetch-",f=s+"body-",u=["arrayBuffer","blob","json","text","formData"],d=c.Request,l=c.Response,p=c.fetch,h="prototype",m="nr@context";d&&l&&p&&(a(u,function(t,e){r(d[h],e,f),r(l[h],e,f)}),r(c,"fetch",s),i.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),i.emit(s+"done",[null,e],n)}else i.emit(s+"done",[t],n)}))},{}],7:[function(t,e,n){var r=t("ee").get("history"),i=t("wrap-function")(r);e.exports=r;var o=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;o&&o.pushState&&o.replaceState&&(a=o),i.inPlace(a,["pushState","replaceState"],"-")},{}],8:[function(t,e,n){var r=t("ee").get("raf"),i=t("wrap-function")(r),o="equestAnimationFrame";e.exports=r,i.inPlace(window,["r"+o,"mozR"+o,"webkitR"+o,"msR"+o],"raf-"),r.on("raf-start",function(t){t[0]=i(t[0],"fn-")})},{}],9:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function i(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var o=t("ee").get("timer"),a=t("wrap-function")(o),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=o,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),o.on(s+u,r),o.on(c+u,i)},{}],10:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function i(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",c)}function o(t){y.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];e.exports=u;var x=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(v,i,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),o(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],11:[function(t,e,n){function r(t){if(!c(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=p.generateSpanId(),m=p.generateTraceId(),w=Date.now(),v={spanId:h,traceId:m,timestamp:w};return(t.sameOrigin||s(t)&&l())&&(v.traceContextParentHeader=i(h,m),v.traceContextStateHeader=o(h,w,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&s(t)&&d())&&(v.newrelicHeader=a(h,m,w,n,r,f)),v}function i(t,e){return"00-"+e+"-"+t+"-01"}function o(t,e,n,r,i){var o=0,a="",c=1,s="",f="";return i+"@nr="+o+"-"+c+"-"+n+"-"+r+"-"+t+"-"+a+"-"+s+"-"+f+"-"+e}function a(t,e,n,r,i,o){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var c={v:[0,1],d:{ty:"Browser",ac:r,ap:i,id:t,tr:e,ti:n}};return o&&r!==o&&(c.d.tk=o),btoa(JSON.stringify(c))}function c(t){return f()&&s(t)}function s(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var i=h(n.allowed_origins[r]);if(t.hostname===i.hostname&&t.protocol===i.protocol&&t.port===i.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function l(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var p=t(21),h=t(13);e.exports={generateTracePayload:r,shouldGenerateTrace:c}},{}],12:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(d[r],this.listener,!1);e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):o(this,t),n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=s(e),t.sameOrigin=t.parsedOrigin.sameOrigin}function o(t,e){t.params.status=e.status;var n=w(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(13),f=t(11).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(17),m=t(16),w=t(14),v=window.XMLHttpRequest;a.features.xhr=!0,t(10),t(6),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){o(e,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],i=this;if(n&&r){var o=m(r);o&&(n.txSize=o)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||i.loadCaptureCalled||(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var c=0;c<l;c++)e.addEventListener(d[c],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof v&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=s(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var i=f(this.parsedOrigin);if(i&&(i.newrelicHeader||i.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var o={};for(var a in r)o[a]=r[a];o.headers=new Headers(r.headers||{}),e(o.headers,i)&&(this.dt=i),t.length>1?t[1]=o:t.push(o)}else t[0]&&t[0].headers&&e(t[0].headers,i)&&(this.dt=i)})}},{}],13:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];var e=document.createElement("a"),n=window.location,i={};e.href=t,i.port=e.port;var o=e.href.split("://");!i.port&&o[1]&&(i.port=o[1].split("/")[0].split("@").pop().split(":")[1]),i.port&&"0"!==i.port||(i.port="https"===o[0]?"443":"80"),i.hostname=e.hostname||n.hostname,i.pathname=e.pathname,i.protocol=o[0],"/"!==i.pathname.charAt(0)&&(i.pathname="/"+i.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,c=e.hostname===document.domain&&e.port===n.port;return i.sameOrigin=a&&(!e.hostname||c),"/"===i.pathname&&(r[t]=i),i}},{}],14:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?i(t.response):"text"===n||""===n||void 0===n?i(t.responseText):void 0}var i=t(16);e.exports=r},{}],15:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[f.now()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(24),c=t(25),s=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,e){u[e]=i(l+e,!0,"api")}),u.addPageAction=i(l+"addPageAction",!0),u.setCurrentRouteName=i(l+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(p+"tracer",[f.now(),t,n],r),function(){if(s.emit((i?"":"no-")+"fn-start",[f.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw s.emit("fn-err",[arguments,this,t],n),t}finally{s.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=i(p+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,f.now(),!1,e])}},{}],16:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],17:[function(t,e,n){var r=0,i=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);i&&(r=+i[1]),e.exports=r},{}],18:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(26);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],19:[function(t,e,n){function r(t){return!(!t||!t.protocol||"file:"===t.protocol)}e.exports=r},{}],20:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof h&&!w){var e=Math.round(t.timeStamp),n={type:t.type};e<=l.now()?n.fid=l.now()-e:e>l.offset&&e<=Date.now()?(e-=l.offset,n.fid=l.now()-e):e=l.now(),w=!0,d("timing",["fi",e,n])}}function c(t){d("pageHide",[l.now(),t])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var s,f,u,d=t("handle"),l=t("loader"),p=t(23),h=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(m){}f=new PerformanceObserver(i);try{f.observe({entryTypes:["largest-contentful-paint"]})}catch(m){}u=new PerformanceObserver(o);try{u.observe({type:"layout-shift",buffered:!0})}catch(m){}}if("addEventListener"in document){var w=!1,v=["click","keydown","mousedown","pointerdown","touchstart"];v.forEach(function(t){document.addEventListener(t,a,!1)})}p(c)}},{}],21:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var i,o="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",c=0;c<o.length;c++)i=o[c],"x"===i?a+=t().toString(16):"y"===i?(i=3&t()|8,a+=i.toString(16)):a+=i;return a}function i(){return a(16)}function o(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,i=window.crypto||window.msCrypto;i&&i.getRandomValues&&Uint8Array&&(n=i.getRandomValues(new Uint8Array(31)));for(var o=[],a=0;a<t;a++)o.push(e().toString(16));return o.join("")}e.exports={generateUuid:r,generateSpanId:i,generateTraceId:o}},{}],22:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,s=c.match(a);s&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=s[1])}e.exports={agent:i,version:o,match:r}},{}],23:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],24:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],25:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],26:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?f(t,s,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!p.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),s=m(n),f=s.length,u=0;u<f;u++)s[u].apply(c,r);var l=d[y[n]];return l&&l.push([x,n,r,c]),c}}function o(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function w(t){return l[t]=l[t]||i(n)}function v(t,e){u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:o,addEventListener:o,removeEventListener:h,emit:n,get:w,listeners:m,context:e,buffer:v,abort:c,aborted:!1};return x}function o(t){return f(t,s,a)}function a(){return new r}function c(){(d.api||d.feature)&&(p.aborted=!0,d=p.backlog={})}var s="nr@context",f=t("gos"),u=t(24),d={},l={},p=e.exports=i();e.exports.getOrSetContext=o,p.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!E++){var t=b.info=NREUM.info,e=p.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(y,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=t(18),c=t("handle"),s=t(24),f=t("ee"),u=t(22),d=t(19),l=window,p=l.document,h="addEventListener",m="attachEvent",w=l.XMLHttpRequest,v=w&&w.prototype;if(d(l.location)){NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var g=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=e.exports={offset:a.getLastTimestamp(),now:a,origin:g,features:{},xhrWrappable:x,userAgent:u};t(15),t(20),p[h]?(p[h]("DOMContentLoaded",o,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",i),l[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,s,f){function nrWrapper(){var o,a,u,l;try{a=this,o=d(arguments),u="function"==typeof r?r(o,a):r||{}}catch(p){i([p,"",[o,a,s],u],t)}c(n+"start",[o,a,s],u,f);try{return l=e.apply(a,o)}catch(h){throw c(n+"err",[o,a,h],u,f),h}finally{c(n+"end",[o,a,l],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[l]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,s,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)s=e[f],c=t[s],a(c)||(t[s]=n(c,u?s+r:r,i,s,o))}function c(n,r,o,a){if(!h||e){var c=h;h=!0;try{t.emit(n,r,o,e,a)}catch(s){i([s,n,r,o],t)}h=c}}return t||(t=u),n.inPlace=r,n.flag=l,n}function i(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)p.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[l])}function c(t,e){var n=e(t);return n[l]=t,o(t,n,u),n}function s(t,e,n){var r=t[e];t[e]=c(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(25),l="nr@original",p=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=s,e.exports.argsToArray=f},{}]},{},["loader",2,12,4,3]);;NREUM.loader_config={accountID:"815479",trustKey:"815479",agentID:"252387427",licenseKey:"bf220c09e2",applicationID:"252387427"};NREUM.info={beacon:"bam-cell.nr-data.net",errorBeacon:"bam-cell.nr-data.net",licenseKey:"bf220c09e2",applicationID:"252387427",sa:1};(function(){var sitevars=JSON.parse(atob("eyJjbG9uZV9oYXNoIjoiYmRlMWJmNWUiLCJodHRwX3Byb3RvY29sIjoiMS4xIiwic2l0ZV9ncm91cCI6MzcsInNob3J0X25hbWUiOiJ3bWlmYWdlbmRhIiwiY2xpZW50X3VzZXIiOiJtdWVsbGVyMiIsImxvZ19oYXNoIjoiYmRlMWJmNWUiLCJjYWNoZV9zdGF0dXMiOiJNSVNTIiwiY2xpZW50X25hbWUiOiJNdWVsbGVyIERlc2lnbidzIFNpdGVzIiwidWFTdHJpbmciOiJXb3JkUHJlc3NcLzUuNS42OyBodHRwczpcL1wvd21pZmFnZW5kYS5zaXRlZGlzdHJpY3QuY29tIiwidXJsX3BhdGgiOiJcL2NhdGVnb3J5XC9ibG9nXC8iLCJjbGllbnRfdHlwZSI6InN0YW5kYXJkIiwicGFnZV91cmwiOiJcL2NhdGVnb3J5XC9ibG9nXC8iLCJzZF9ob3N0IjoiaG9zdC01IiwiY2xvbmVfaWQiOjExNTAxLCJyZXF1ZXN0X2lkIjoiNzI5MGM0ZWI4OWFkM2M2OGY2OWM2Nzk4MmIwMDIzMDUiLCJjbGllbnRfaWQiOjYxNSwiYmFzZV9kb21haW4iOiJ3bWlmYWdlbmRhLnNpdGVkaXN0cmljdC5jb20iLCJzaXRlX2lkIjo2NTEzNywic291cmNlX2lwIjoiMy4yMTIuMTYyLjcyIiwicXVlcnlfc3RyaW5nIjoiIn0="));for(const key of Object.keys(sitevars)){newrelic.setCustomAttribute(key,sitevars[key]);}})();(function() {var re = document.removeEventListener,ae = document.addEventListener,ev = ['scroll', 'mousemove', 'touchmove', 'touchstart'];function p() {var value = 'm';var date = new Date();date.setTime(date.getTime() + (30*24*60*60*1000));var expires = "; expires=" + date.toUTCString();document.cookie = "sd_fw_hash=13297b9238c1f084d53d67ae2b9d1b13" + expires + "; path=/";for (i = 0; i < ev.length; i++) {re(ev[i], p, false);}};window.addEventListener('load', function() {setTimeout(function() {for (i = 0; i < ev.length; i++) {ae(ev[i], p, false);}ae('scroll', p, false);}, 2000);});})();</script>
+	<meta charset="UTF-8">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<script> var theplus_ajax_url = "https://davekuhar.github.io/partners-wmif-agenda-21/wp-admin/admin-ajax.php";</script>
+	
+	<title>Blog Archives - 2021 World Medical Innovation Forum</title>
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<link rel="canonical" href="https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/">
+	<link rel="next" href="https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/page/2/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Blog Archives - 2021 World Medical Innovation Forum">
+	<meta property="og:url" content="https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/">
+	<meta property="og:site_name" content="2021 World Medical Innovation Forum">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://davekuhar.github.io/partners-wmif-agenda-21/#organization","name":"Mass General Brigham","url":"https://davekuhar.github.io/partners-wmif-agenda-21/","sameAs":[],"logo":{"@type":"ImageObject","@id":"https://davekuhar.github.io/partners-wmif-agenda-21/#logo","inLanguage":"en-US","url":"https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/2020/09/wmif-horizontal.svg","width":850,"height":176,"caption":"Mass General Brigham"},"image":{"@id":"https://davekuhar.github.io/partners-wmif-agenda-21/#logo"}},{"@type":"WebSite","@id":"https://davekuhar.github.io/partners-wmif-agenda-21/#website","url":"https://davekuhar.github.io/partners-wmif-agenda-21/","name":"2021 World Medical Innovation Forum","description":"Gene and Cell Therapy","publisher":{"@id":"https://davekuhar.github.io/partners-wmif-agenda-21/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://davekuhar.github.io/partners-wmif-agenda-21/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/#webpage","url":"https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/","name":"Blog Archives - 2021 World Medical Innovation Forum","isPartOf":{"@id":"https://davekuhar.github.io/partners-wmif-agenda-21/#website"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/"]}]}]}</script>
+	
+
+
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+<link href="https://fonts.gstatic.com/" crossorigin rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="2021 World Medical Innovation Forum &raquo; Feed" href="https://davekuhar.github.io/partners-wmif-agenda-21/feed/">
+<link rel="alternate" type="application/rss+xml" title="2021 World Medical Innovation Forum &raquo; Comments Feed" href="https://davekuhar.github.io/partners-wmif-agenda-21/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="2021 World Medical Innovation Forum &raquo; Blog Category Feed" href="https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/feed/">
+		<script>
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/davekuhar.github.io\/partners-wmif-agenda-21\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<link rel="stylesheet" type="text/css" href="https://use.typekit.net/yev5zdw.css">
+<style>img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="toolset-common-es-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/wp-views/vendor/toolset/common-es/public/toolset-common-es.css?ver=131000" media="all">
+<link rel="stylesheet" id="toolset_blocks-style-css-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/wp-views/vendor/toolset/blocks/public/css/style.css?ver=1.3.5" media="all">
+<link rel="stylesheet" id="generate-fonts-css" href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/css/dist/block-library/style.min.css?ver=5.5.6" media="all">
+<link rel="stylesheet" id="view_editor_gutenberg_frontend_assets-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/wp-views/public/css/views-frontend.css?ver=3.3.1" media="all">
+<link rel="stylesheet" id="theplus-front-css-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/theplus-addons/theplus.min.css?ver=1633209185" media="all">
+<link rel="stylesheet" id="plus-icons-mind-css-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/theplus_elementor_addon/assets/css/extra/iconsmind.min.css?ver=4.1.1" media="all">
+<link rel="stylesheet" id="generate-style-grid-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/themes/generatepress/assets/css/unsemantic-grid.min.css?ver=3.0.2" media="all">
+<link rel="stylesheet" id="generate-style-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/themes/generatepress/assets/css/style.min.css?ver=3.0.2" media="all">
+<style id="generate-style-inline-css">body{background-color:#efefef;color:#3a3a3a;}a{color:#1e73be;}a:hover, a:focus, a:active{color:#000000;}body .grid-container{max-width:1100px;}.wp-block-group__inner-container{max-width:1100px;margin-left:auto;margin-right:auto;}body, button, input, select, textarea{font-family:-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";font-size:16px;}body{line-height:1.5;}.entry-content > [class*="wp-block-"]:not(:last-child){margin-bottom:1.5em;}.main-title{font-family:"Roboto", sans-serif;font-size:45px;}.site-description{font-family:"Roboto", sans-serif;}.main-navigation a, .menu-toggle{font-family:"Roboto", sans-serif;}.main-navigation .main-nav ul ul li a{font-size:14px;}.widget-title{font-family:"Roboto", sans-serif;}.sidebar .widget, .footer-widgets .widget{font-size:17px;}button:not(.menu-toggle),html input[type="button"],input[type="reset"],input[type="submit"],.button,.wp-block-button .wp-block-button__link{font-family:"Roboto", sans-serif;}h1{font-family:"Roboto", sans-serif;font-weight:bold;font-size:100px;line-height:1.1em;margin-bottom:0px;}h2{font-family:"Roboto", sans-serif;font-weight:300;font-size:75px;line-height:1.1em;}h3{font-family:"Roboto", sans-serif;font-size:40px;line-height:1.1em;}h4{font-family:"Roboto", sans-serif;font-size:30px;line-height:1.1em;}h5{font-family:"Roboto", sans-serif;line-height:1.1em;}h6{font-family:"Roboto", sans-serif;font-size:16px;line-height:1.1em;}.site-info{font-family:"Roboto", sans-serif;}@media (max-width:768px){.main-title{font-size:30px;}h1{font-size:65px;}h2{font-size:50px;}}.top-bar{background-color:#636363;color:#ffffff;}.top-bar a{color:#ffffff;}.top-bar a:hover{color:#303030;}.site-header{background-color:#ffffff;color:#3a3a3a;}.site-header a{color:#3a3a3a;}.main-title a,.main-title a:hover{color:#222222;}.site-description{color:#757575;}.main-navigation,.main-navigation ul ul{background-color:#222222;}.main-navigation .main-nav ul li a,.menu-toggle, .main-navigation .menu-bar-items{color:#ffffff;}.main-navigation .main-nav ul li:hover > a,.main-navigation .main-nav ul li:focus > a, .main-navigation .main-nav ul li.sfHover > a, .main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{color:#ffffff;background-color:#3f3f3f;}button.menu-toggle:hover,button.menu-toggle:focus,.main-navigation .mobile-bar-items a,.main-navigation .mobile-bar-items a:hover,.main-navigation .mobile-bar-items a:focus{color:#ffffff;}.main-navigation .main-nav ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#3f3f3f;}.main-navigation .main-nav ul li[class*="current-menu-"] > a:hover,.main-navigation .main-nav ul li[class*="current-menu-"].sfHover > a{color:#ffffff;background-color:#3f3f3f;}.navigation-search input[type="search"],.navigation-search input[type="search"]:active, .navigation-search input[type="search"]:focus, .main-navigation .main-nav ul li.search-item.active > a, .main-navigation .menu-bar-items .search-item.active > a{color:#ffffff;background-color:#3f3f3f;}.main-navigation ul ul{background-color:#3f3f3f;}.main-navigation .main-nav ul ul li a{color:#ffffff;}.main-navigation .main-nav ul ul li:hover > a,.main-navigation .main-nav ul ul li:focus > a,.main-navigation .main-nav ul ul li.sfHover > a{color:#ffffff;background-color:#4f4f4f;}.main-navigation .main-nav ul ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#4f4f4f;}.main-navigation .main-nav ul ul li[class*="current-menu-"] > a:hover,.main-navigation .main-nav ul ul li[class*="current-menu-"].sfHover > a{color:#ffffff;background-color:#4f4f4f;}.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .one-container .container, .separate-containers .paging-navigation, .inside-page-header{background-color:#ffffff;}.entry-meta{color:#595959;}.entry-meta a{color:#595959;}.entry-meta a:hover{color:#1e73be;}.sidebar .widget{background-color:#ffffff;}.sidebar .widget .widget-title{color:#000000;}.footer-widgets{background-color:#ffffff;}.footer-widgets .widget-title{color:#000000;}.site-info{color:#ffffff;background-color:#222222;}.site-info a{color:#ffffff;}.site-info a:hover{color:#606060;}.footer-bar .widget_nav_menu .current-menu-item a{color:#606060;}input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="tel"],input[type="number"],textarea,select{color:#666666;background-color:#fafafa;border-color:#cccccc;}input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="number"]:focus,textarea:focus,select:focus{color:#666666;background-color:#ffffff;border-color:#bfbfbf;}button,html input[type="button"],input[type="reset"],input[type="submit"],a.button,a.wp-block-button__link:not(.has-background){color:#ffffff;background-color:#666666;}button:hover,html input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover,a.button:hover,button:focus,html input[type="button"]:focus,input[type="reset"]:focus,input[type="submit"]:focus,a.button:focus,a.wp-block-button__link:not(.has-background):active,a.wp-block-button__link:not(.has-background):focus,a.wp-block-button__link:not(.has-background):hover{color:#ffffff;background-color:#3f3f3f;}a.generate-back-to-top{background-color:rgba( 0,0,0,0.4 );color:#ffffff;}a.generate-back-to-top:hover,a.generate-back-to-top:focus{background-color:rgba( 0,0,0,0.6 );color:#ffffff;}@media (max-width:768px){.main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{background:none;color:#ffffff;}}.inside-top-bar{padding:10px;}.inside-header{padding:40px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-40px;width:calc(100% + 80px);max-width:calc(100% + 80px);}.rtl .menu-item-has-children .dropdown-menu-toggle{padding-left:20px;}.rtl .main-navigation .main-nav ul li.menu-item-has-children > a{padding-right:20px;}.site-info{padding:20px;}@media (max-width:768px){.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .separate-containers .paging-navigation, .one-container .site-content, .inside-page-header, .wp-block-group__inner-container{padding:30px;}.site-info{padding-right:10px;padding-left:10px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-30px;width:calc(100% + 60px);max-width:calc(100% + 60px);}}.one-container .sidebar .widget{padding:0px;}@media (max-width:768px){.main-navigation .menu-toggle,.main-navigation .mobile-bar-items,.sidebar-nav-mobile:not(#sticky-placeholder){display:block;}.main-navigation ul,.gen-sidebar-nav{display:none;}[class*="nav-float-"] .site-header .inside-header > *{float:none;clear:both;}}
+h1.entry-title{font-size:100px;line-height:1.1em;}h2.entry-title{font-size:75px;line-height:1.2em;}@media (max-width:768px){h1.entry-title{font-size:65px;}h2.entry-title{font-size:50px;}}</style>
+<link rel="stylesheet" id="generate-mobile-style-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/themes/generatepress/assets/css/mobile.min.css?ver=3.0.2" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/types/vendor/toolset/toolset-common/res/lib/font-awesome/css/font-awesome.min.css?ver=4.7.0" media="screen">
+<link rel="stylesheet" id="generate-child-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/themes/generatepress_child/style.css?ver=1601572815" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.9.1" media="all">
+<link rel="stylesheet" id="elementor-animations-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.0.12" media="all">
+<link rel="stylesheet" id="elementor-frontend-legacy-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/css/frontend-legacy.min.css?ver=3.0.12" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.0.12" media="all">
+<link rel="stylesheet" id="elementor-post-8451-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/elementor/css/post-8451.css?ver=1603294251" media="all">
+<link rel="stylesheet" id="elementor-pro-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor-pro/assets/css/frontend.min.css?ver=3.0.5" media="all">
+<link rel="stylesheet" id="font-awesome-5-all-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.0.12" media="all">
+<link rel="stylesheet" id="font-awesome-4-shim-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.0.12" media="all">
+<link rel="stylesheet" id="elementor-global-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/elementor/css/global.css?ver=1603294252" media="all">
+<link rel="stylesheet" id="elementor-post-6747-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/elementor/css/post-6747.css?ver=1603294252" media="all">
+<link rel="stylesheet" id="elementor-post-8840-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/elementor/css/post-8840.css?ver=1603294252" media="all">
+<link rel="stylesheet" id="elementor-post-6774-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/elementor/css/post-6774.css?ver=1603294252" media="all">
+<link rel="stylesheet" id="elementor-post-7826-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/elementor/css/post-7826.css?ver=1633209185" media="all">
+<link rel="stylesheet" id="mediaelement-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.13-9993131" media="all">
+<link rel="stylesheet" id="wp-mediaelement-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=5.5.6" media="all">
+<link rel="stylesheet" id="views-pagination-style-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/wp-views/embedded/res/css/wpv-pagination.css?ver=3.3.1" media="all">
+<style id="views-pagination-style-inline-css">.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item a {color: #444;background-color: #fff;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default a:focus {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-default .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #eee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item {border-color: #cdcdcd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item a {color: #444;background-color: #eeeeee;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey a:focus {color: #000;background-color: #e5e5e5;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-grey .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #e5e5e5;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue > span.wpv-sort-list,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue .wpv-sort-list-item {border-color: #0099cc;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue .wpv-sort-list-item a {color: #444;background-color: #cbddeb;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue a:hover,.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue a:focus {color: #000;background-color: #95bedd;}.wpv-sort-list-dropdown.wpv-sort-list-dropdown-style-blue .wpv-sort-list-item.wpv-sort-list-current a {color: #000;background-color: #95bedd;}</style>
+<link rel="stylesheet" id="generatepress-overrides-css-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/wp-views/vendor/toolset/toolset-theme-settings/res/css/themes/generatepress-overrides.css?ver=1.4.3" media="screen">
+<link rel="stylesheet" id="microthemer-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/micro-themes/active-styles.css?mts=596&#038;ver=5.5.6" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7COpen+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;ver=5.5.6" media="all">
+<link rel="stylesheet" id="elementor-icons-shared-0-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.12.0" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-brands-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=5.12.0" media="all">
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/wp-views/vendor/toolset/common-es/public/toolset-common-es-masonry.js?ver=5.5.6" id="toolset-common-es-masonry-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp" id="jquery-core-js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js?ver=5.5.6" id="jquery-waypoints-js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js?ver=5.5.6" id="scrollmagic-js-js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.js?ver=5.5.6" id="scrollmagic-debug-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/SoulMagic/assets/js/soulmagic.js?ver=5.5.6" id="soulmagic-js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js?ver=5.5.6" id="gsap-js"></script>
+<script id="gsap-js-after">
+            /* set page builder editor detection variable */
+            var editorLoaded = false;
+
+
+            jQuery(document).on("ready" ,function() {
+
+                /* make sure BeaverBuilder editor is not loaded */
+                if (jQuery(".fl-builder-bar").length) {
+                    editorLoaded = true;
+                }
+
+                /* if no page builder editors are loaded */
+                if (!editorLoaded) {
+                    _soulmagic.trigger("smready" , SoulMagics);
+                }
+
+            });
+
+            jQuery(window).on("load" ,function() {
+
+                /* if no page builder editors are loaded */
+                if (!editorLoaded) {
+                    _soulmagic.trigger("smload" , SoulMagics);
+                }
+            });
+
+            
+                document.write("<style>body { opacity:0 } <\/style>");
+
+                _soulmagic.add_action( "smload", function() {
+                        jQuery("body").css("opacity", 1);
+                }, 10 );
+
+                
+    /* create new scroll magic controller */
+    var ScrollMagicController = new ScrollMagic.Controller();
+
+    /* hook actions */
+    _soulmagic.add_action( "smready", _soulmagic.revertSplitText , 10 );
+    _soulmagic.add_action( "smload", _soulmagic.loadWaypoints , 50 );
+
+    function SoulMagic_Waypoints( obj, no, args ) {
+		SoulMagic_Base.call(this, obj, no, args);
+	}
+
+	function SoulMagic_Hover( obj, no, args ) {
+		SoulMagic_Base.call(this, obj, no, args);
+
+		jQuery( obj ).hover(
+			function(){
+				var no = jQuery( obj ).data( "soulmagic_no" );
+				var timeline = SoulMagics[ no ].timeline;
+
+				timeline.delay( parseFloat( SoulMagics[ no ].args.delay || 0 ) ).play().timeScale(1);
+
+			}, function(){
+				var no = jQuery( obj ).data( "soulmagic_no" );
+				var timeline = SoulMagics[ no ].timeline;
+
+				if( "1" !== SoulMagics[ no ].args.direction ) {
+				    return;
+				}
+
+				timeline.reverse();
+
+			}
+		);
+	}
+
+
+	function SoulMagic_Waypoints( obj, no, args ) {
+		SoulMagic_Base.call(this, obj, no, args);
+	}
+
+	function SoulMagic_ScrollMagic_Position_Calculator(position) {
+	    /* get current viewport height */
+	    var height = jQuery(window).height()
+
+	    /* get pixel equivalence of percentage of viewport height */
+	    var pixels = height*(position/100)
+
+	    return pixels;
+	}
+
+	function SoulMagic_ScrollMagic( obj, no, args ) {
+
+
+		SoulMagic_Base.call(this, obj, no, args);
+
+        this.loadScrollMagic = function() {
+
+            var no = jQuery( this.obj ).data( "soulmagic_no" );
+
+            /* prepare offset */
+            var offset = parseInt(this.args.scrollmagic_offset) / 100;
+
+            /* setup scene params */
+            var scene_options = {}
+            scene_options.triggerElement = this.obj;
+            scene_options.reverse = this.args.direction;
+            scene_options.triggerHook = offset;
+
+            /* calculate duration */
+            var duration = this.args.scrollmagic_duration;
+            switch(this.args.scrollmagic_spread_units) {
+                case "percentage":
+                    duration = SoulMagic_ScrollMagic_Position_Calculator(duration)
+                    break
+            }
+            scene_options.duration = duration;
+
+            /* initiate scene */
+            var scene = new ScrollMagic.Scene(scene_options);
+
+            /* set scene timeline */
+            scene.setTween(SoulMagics[ this.no ].timeline);
+
+            /* inititate debug mode */
+            if (this.args.scrollmagic_debug) {
+                scene.addIndicators({name: "ScrollMagic Target"})
+            }
+
+            /* add scene to controller */
+            scene.addTo(ScrollMagicController);
+
+            SoulMagics[ this.no ].timeline.delay( parseFloat( this.args.delay || 0 ) ).play();
+        }
+
+        _soulmagic.add_action( "smload", this.loadScrollMagic , 20 , this);
+	}
+
+    function SoulMagic_Flickity_Get_State( timeline, slide ) {
+        return SoulMagics[timeline].flickityIsTransitioning[slide];
+    }
+
+	function SoulMagic_Flickity( obj, no, args, ev ) {
+
+		args.load_base = false;
+        this.obj = obj;
+        this.args = args;
+        this.steps = args.steps;
+        this.no = no;
+        this.timeline_slug = args.timeline_slug;
+        this.flickityIsTransitioning = [];
+
+		SoulMagic_Base.call(this, obj, no, args);
+
+		this.load_flickity = function() {
+            var timeline = this;
+
+			SoulMagics[ timeline.no ].flickity = Flickity.data( timeline.obj );
+
+            /* skip flickity when element notpresent */
+            if (typeof SoulMagics[ timeline.no ].flickity == "undefined") {
+                return;
+            }
+
+			SoulMagics[ timeline.no ].timeline = [];
+
+			var count_slides = SoulMagics[ timeline.no ].flickity.slides.length;
+
+			for ( var n = 0; n < count_slides; ++n ) {
+				SoulMagics[ timeline.no ].timeline[ n ] = new TimelineMax( timeline.args.options );
+				SoulMagics[ timeline.no ].timeline[ n ].stop();
+				for ( var i in SoulMagics[ timeline.no ].steps ) {
+					var step = SoulMagics[ timeline.no ].steps[ i ];
+					var selector = jQuery( timeline.obj ).find( step.selector ).eq( n );
+
+					if ( step.parent ) { selector = selector.parent(); }
+					if ( step.advanced_effects == "stagger" ) {
+						SoulMagics[ timeline.no ].timeline[ n ].staggerTo(
+							selector,
+							step.duration,
+							step.to,
+							step.stagger_interval,
+							step.position
+						);
+					} else {
+						SoulMagics[ timeline.no ].timeline[ n ].to(
+							selector,
+							step.duration,
+							step.to,
+							step.position
+						);
+					}
+				}
+			}
+
+            /* create promise check for transition state */
+            function checkState( no , slide ) {
+                var promise = new Promise(function (resolve,reject) {
+                    if (!SoulMagics[ no ].flickityIsTransitioning[slide] ) {
+                        var data = {
+                            timeline : no,
+                            slide : slide
+                        }
+                        resolve(data)
+                    } else {
+                        reject();
+                    }
+                });
+                return promise;
+            }
+
+            var present_slide = 0;
+			jQuery( timeline.obj ).on( ev, function() {
+
+				var current = SoulMagics[ timeline.no ].flickity.selectedIndex;
+                present_slide = current;
+
+				/* pull delay from SS if available else set reset delay to 1 */
+                var reset_delay = jQuery(this).data("flickityfadespeed");
+                reset_delay = (reset_delay) ? parseFloat(reset_delay) : 1;
+
+                /* greensock delays not working after slide reset - work around here */
+				setTimeout(function(no, current){
+                    SoulMagics[ no ].flickityIsTransitioning[current] = true;
+					SoulMagics[ no ].timeline[ current ].delay( parseFloat( SoulMagics[ no ].args.delay || 0 ) ).play().timeScale(1);
+
+                    setTimeout(function( t_no , s_current) {
+
+                        SoulMagics[ t_no ].flickityIsTransitioning[s_current] = false;
+
+                    } , SoulMagics[ no ].timeline[ current ].duration() * 1000 ,  no, current);
+
+
+				}, (SoulMagics[ timeline.no ].args.delay || 0), timeline.no, current);
+
+
+				var count_slides = SoulMagics[ timeline.no ].flickity.slides.length;
+
+				for ( var n = 0; n < count_slides; ++n ) {
+
+					if ( current === n ) {
+						continue;
+					}
+
+					setTimeout(function(no, n){
+                        var i = 0;
+
+                        if (present_slide != n) {
+                            SoulMagics[ no ].timeline[ n ].restart(true, false).pause();
+                        }
+
+					}, reset_delay*1000 ,timeline.no, n);
+
+				}
+			})
+			//jQuery( timeline.obj ).trigger( ev );
+		}
+		_soulmagic.add_action( "smload", this.load_flickity , 20 , this  );
+	}
+
+	function SoulMagic_Base( obj, no, args ) {
+		this.obj = obj;
+		this.args = args;
+		this.steps = args.steps;
+		this.no = no;
+		this.timeline_slug = args.timeline_slug;
+		this.split = [];
+
+		if ( undefined === this.args.load_base ) {
+			this.args.load_base = true;
+		}
+		if ( undefined === this.args.ready_base ) {
+			this.args.ready_base = true;
+		}
+
+		jQuery( obj ).data( "soulmagic_no", this.no );
+
+		/* set a special timeline indicator for waypoints */
+		if (this.args.event == "waypoints") {
+		    jQuery( obj ).data( "soulmagic_waypoint_no", this.no );
+        }
+
+        /* check if resolution targeting is on and bail if out of bounds */
+        if (this.args.resolution_targeting) {
+            var oob = false;
+
+            if (screen.width < this.args.resolution_targeting_width_min ) {
+                oob = true;
+            }
+
+            if (screen.width > this.args.resolution_targeting_width_max) {
+                console.log("oob:greater than max")
+                oob = true;
+            }
+
+            if (oob) {
+                this.timeline = new TimelineMax( {} );
+                return;
+            }
+        }
+
+        this.timeline = new TimelineMax( args.options );
+
+		this.ready = function() {
+
+			for ( var i in SoulMagics[ this.no ].steps ) {
+				var step = SoulMagics[ this.no ].steps[ i ];
+
+				var target = jQuery( this.obj ).find( step.selector );
+				var target_parent = target.parent();
+
+                /* set target for hover event with breakout enabled */
+                if ( this.args.event == "hover" && this.args.hover_breakout == true ) {
+                    target = step.selector_raw
+                }
+
+                /*check to make sure target exists */
+                if (jQuery(target).length === 0) {
+                    /**
+                    console.log("event:" + this.args.event);
+                    console.log("ready: step "+i+" target not detected");
+                    console.log("args:");
+                    console.log(this.args);
+                    /**/
+
+                    /* case 1 - no first step target found */
+                    if (i==0) {
+                        var next_step = parseInt(i)+parseInt(1);
+                        if (typeof SoulMagics[ this.no ].steps[ next_step ] != "undefined") {
+                            SoulMagics[ this.no ].steps[ next_step ].position = "0";
+                        }
+                    }
+
+                    continue;
+                }
+
+                /* do nothing if splittext enabled  */
+                if ( step.advanced_effects == "splittext" && typeof target != "undefined" ) {
+
+				   //do nothing
+				}
+				/* set tween for everything else */
+				else {
+				    TweenMax.set( target, step.from );
+				    TweenMax.set( target_parent, step.from_parent );
+				}
+
+			}
+			SoulMagics[ this.no ].timeline.stop();
+			return;
+		}
+
+		this.load = function() {
+
+			for ( var i in SoulMagics[ this.no ].steps ) {
+				var step = SoulMagics[ this.no ].steps[ i ];
+				var selector = jQuery( this.obj ).find( step.selector );
+
+				if ( step.parent ) { selector = selector.parent(); }
+
+                 /* set new step target for hover event with breakout enabled */
+                if ( this.args.event == "hover" && this.args.hover_breakout == true ) {
+                    selector = step.selector_raw
+                }
+
+                 /*check to make sure target exists */
+                if (jQuery(selector).length === 0) {
+                    continue;
+                }
+
+                /* set timeline goal for splittext enabled effects */
+				if ( step.advanced_effects == "splittext" ) {
+
+                    var parse = step.splittext_parsing;
+                    var splittext_stagger_default = (step.stagger_interval) ? step.stagger_interval : ".1";
+                    var splittext_stagger = (step.splittext_stagger_interval) ? step.splittext_stagger_interval : splittext_stagger_default;
+
+                    SoulMagics[ this.no ].split[i] = new SplitText(
+                        selector,
+                        {
+                            type:parse ,
+                            linesClass:"sm_split sm_line",
+                            charsClass:"sm_split sm_char",
+                            wordsClass:"sm_split sm_word"
+                         }
+                     );
+
+                    if (SoulMagics[ this.no ].split[i].chars.length>0) {
+                        TweenMax.set( selector.find(".sm_char"), step.from );
+                        selector = selector.find( ".sm_char" );
+                        SoulMagics[ this.no ].timeline.staggerTo(
+                            selector,
+                            step.duration,
+                            step.to,
+                            splittext_stagger,
+                            step.position
+                        );
+                    }
+
+                    if (SoulMagics[ this.no ].split[i].words.length>0) {
+                        TweenMax.set( selector.find(".sm_word"), step.from );
+                        selector = selector.find( ".sm_word" );
+                        SoulMagics[ this.no ].timeline.staggerTo(
+                            selector,
+                            step.duration,
+                            step.to,
+                            splittext_stagger,
+                            step.position
+                        );
+                    }
+
+                    if (SoulMagics[ this.no ].split[i].lines.length>0) {
+                        TweenMax.set( selector.find(".sm_line"), step.from );
+
+                        /* Apply special CSS rule to target to help with inconsistent linebreaks */
+                        //jQuery(target).css({ "white-space" : "nowrap"});
+
+                        selector = selector.find( ".sm_line" );
+                        SoulMagics[ this.no ].timeline.staggerTo(
+                            selector,
+                            step.duration,
+                            step.to,
+                            splittext_stagger,
+                            step.position
+                        );
+                    }
+				}
+				/* play animation with stagger effects activated - checks for legacy stagger implementation */
+				else if ( step.advanced_effects == "stagger" || ( !step.advanced_effects && step.stagger_legacy === "1") ) {
+
+                    SoulMagics[ this.no ].timeline.staggerTo(
+                        selector,
+                        step.duration,
+                        step.to,
+                        step.stagger_interval,
+                        step.position
+                    );
+
+				} else {
+                    /* if BATS enabled set multiple duration by 100 to ensure it animates of the entire scroll course */
+                    if (this.args.scrollmagic_spread_enable === "1") {
+                        step.duration = parseInt(step.duration) * 100;
+                    }
+
+                    /* set to tween for timeline */
+                    var tween = TweenMax.to(
+                        selector,
+                        step.duration,
+                        step.to,
+                        step.stagger_interval
+                    );
+
+                    SoulMagics[ this.no ].timeline.add(tween , step.position);
+
+				}
+
+			}
+		}
+		if ( args.ready_base ) {
+		    _soulmagic.add_action( "smready", this.ready , 20 , this );
+		}
+		if ( args.load_base ) {
+			_soulmagic.add_action( "smload", this.load , 20 ,  this );
+		}
+	}
+
+
+	var SoulMagics = [];
+	var SoulMagic_Count = 0;
+	jQuery(function($){
+		// timeline #7494
+		jQuery('.soulmagic-timeline-7494,.soulmagic-timeline-pillar-2,.pillar2').each(function(){
+			SoulMagics[ SoulMagic_Count ] = new SoulMagic_Waypoints( this, SoulMagic_Count, {"id":7494,"timeline_slug":"pillar-2","steps":[{"selector":".soulmagic-timeline-7494-step-1,h4,.soulmagic-timeline-pillar-2-step-1,h4","selector_raw":"h4","from":{"autoAlpha":0,"y":"25px","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"y":"0px","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"0","duration":".4","advanced_effects":"splittext","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":"","splittext_stagger_interval":".07"},{"selector":".soulmagic-timeline-7494-step-2,.elementor-text-editor,.soulmagic-timeline-pillar-2-step-2,.elementor-text-editor","selector_raw":".elementor-text-editor","from":{"autoAlpha":0,"y":"25px","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"y":"0px","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"0.2","duration":".3","advanced_effects":"stagger","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":".1","splittext_stagger_interval":".1"}],"resolution_targeting":"","resolution_targeting_width_min":0,"resolution_targeting_width_max":10000,"event":"waypoints","trigger":".soulmagic-timeline-7494,.soulmagic-timeline-pillar-2,.pillar2","direction":"","offset":"80%","delay":"","hover_breakout":false,"options":[]} );
+			SoulMagic_Count++;
+		});
+		// timeline #7462
+		jQuery('.soulmagic-timeline-7462,.soulmagic-timeline-headline-btn,.hl-btn').each(function(){
+			SoulMagics[ SoulMagic_Count ] = new SoulMagic_Waypoints( this, SoulMagic_Count, {"id":7462,"timeline_slug":"headline-btn","steps":[{"selector":".soulmagic-timeline-7462-step-1,h2,.soulmagic-timeline-headline-btn-step-1,h2","selector_raw":"h2","from":{"autoAlpha":0,"y":"25px","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"y":"0px","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"=0","duration":".3","advanced_effects":"splittext","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":"","splittext_stagger_interval":".08"},{"selector":".soulmagic-timeline-7462-step-2,a,.soulmagic-timeline-headline-btn-step-2,a","selector_raw":"a","from":{"autoAlpha":0,"x":"25px","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"x":"0px","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"=0","duration":".2","advanced_effects":"none","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":"","splittext_stagger_interval":".1"}],"resolution_targeting":"","resolution_targeting_width_min":0,"resolution_targeting_width_max":10000,"event":"waypoints","trigger":".soulmagic-timeline-7462,.soulmagic-timeline-headline-btn,.hl-btn","direction":"","offset":"80%","delay":"","hover_breakout":false,"options":[]} );
+			SoulMagic_Count++;
+		});
+		// timeline #7461
+		jQuery('.soulmagic-timeline-7461,.soulmagic-timeline-home-three-pillar,.pillar').each(function(){
+			SoulMagics[ SoulMagic_Count ] = new SoulMagic_Waypoints( this, SoulMagic_Count, {"id":7461,"timeline_slug":"home-three-pillar","steps":[{"selector":".soulmagic-timeline-7461-step-1,h3,.soulmagic-timeline-home-three-pillar-step-1,h3","selector_raw":"h3","from":{"autoAlpha":0,"y":"25px","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"y":"0px","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"0","duration":".4","advanced_effects":"splittext","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":"","splittext_stagger_interval":".1"},{"selector":".soulmagic-timeline-7461-step-2,.elementor-text-editor,.soulmagic-timeline-home-three-pillar-step-2,.elementor-text-editor","selector_raw":".elementor-text-editor","from":{"autoAlpha":0,"y":"25px","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"y":"0px","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"0.1","duration":".2","advanced_effects":"splittext","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":"","splittext_stagger_interval":".05"}],"resolution_targeting":"","resolution_targeting_width_min":0,"resolution_targeting_width_max":10000,"event":"waypoints","trigger":".soulmagic-timeline-7461,.soulmagic-timeline-home-three-pillar,.pillar","direction":"","offset":"80%","delay":"","hover_breakout":false,"options":[]} );
+			SoulMagic_Count++;
+		});
+		// timeline #7457
+		jQuery('.soulmagic-timeline-7457,.soulmagic-timeline-hero,.hero').each(function(){
+			SoulMagics[ SoulMagic_Count ] = new SoulMagic_Waypoints( this, SoulMagic_Count, {"id":7457,"timeline_slug":"hero","steps":[{"selector":".soulmagic-timeline-7457-step-1,h1,.soulmagic-timeline-hero-step-1,h1","selector_raw":"h1","from":{"autoAlpha":0,"y":"25px","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"y":"0px","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"0","duration":".3","advanced_effects":"splittext","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":"","splittext_stagger_interval":".1"},{"selector":".soulmagic-timeline-7457-step-2,.elementor-text-editor,.soulmagic-timeline-hero-step-2,.elementor-text-editor","selector_raw":".elementor-text-editor","from":{"autoAlpha":0,"x":"25px","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"x":"0px","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"0.2","duration":".5","advanced_effects":"stagger","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":".1","splittext_stagger_interval":".1"}],"resolution_targeting":"","resolution_targeting_width_min":0,"resolution_targeting_width_max":10000,"event":"waypoints","trigger":".soulmagic-timeline-7457,.soulmagic-timeline-hero,.hero","direction":"","offset":"100%","delay":"","hover_breakout":false,"options":[]} );
+			SoulMagic_Count++;
+		});
+		// timeline #7216
+		jQuery('.soulmagic-timeline-7216,.soulmagic-timeline-difference-page-icons,.draw-me-mom').each(function(){
+			SoulMagics[ SoulMagic_Count ] = new SoulMagic_Waypoints( this, SoulMagic_Count, {"id":7216,"timeline_slug":"difference-page-icons","steps":[{"selector":".soulmagic-timeline-7216-step-1,.line01, .line02, .lineone,.soulmagic-timeline-difference-page-icons-step-1,.line01, .line02, .lineone","selector_raw":".line01, .line02, .lineone","from":{"autoAlpha":0,"drawSVG":"0% 0%","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"drawSVG":"100%","force3D":true,"ease":Power3.easeInOut,"autoRound":false},"parent":false,"position":"=0","duration":"1.1","advanced_effects":"stagger","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":".3","splittext_stagger_interval":".1"}],"resolution_targeting":"","resolution_targeting_width_min":0,"resolution_targeting_width_max":10000,"event":"waypoints","trigger":".soulmagic-timeline-7216,.soulmagic-timeline-difference-page-icons,.draw-me-mom","direction":"","offset":"80%","delay":"","hover_breakout":false,"options":[]} );
+			SoulMagic_Count++;
+		});
+		// timeline #7148
+		jQuery('.soulmagic-timeline-7148,.soulmagic-timeline-event-big-icons,#animate-icons-event').each(function(){
+			SoulMagics[ SoulMagic_Count ] = new SoulMagic_Waypoints( this, SoulMagic_Count, {"id":7148,"timeline_slug":"event-big-icons","steps":[{"selector":".soulmagic-timeline-7148-step-1,.bg-color,.soulmagic-timeline-event-big-icons-step-1,.bg-color","selector_raw":".bg-color","from":{"autoAlpha":0,"y":"25px","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"y":"0px","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"=0","duration":".15","advanced_effects":"stagger","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":".05","splittext_stagger_interval":".1"},{"selector":".soulmagic-timeline-7148-step-2,.w-stroke-1, .w-stroke-2, .w-stroke-3, .w-stroke-11, .w-stroke-12, .w-stroke-13,  .w-stroke-123,  .w-stroke-223,.soulmagic-timeline-event-big-icons-step-2,.w-stroke-1, .w-stroke-2, .w-stroke-3, .w-stroke-11, .w-stroke-12, .w-stroke-13,  .w-stroke-123,  .w-stroke-223","selector_raw":".w-stroke-1, .w-stroke-2, .w-stroke-3, .w-stroke-11, .w-stroke-12, .w-stroke-13,  .w-stroke-123,  .w-stroke-223","from":{"autoAlpha":0,"drawSVG":"0% 0%","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"drawSVG":"100%","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"=0","duration":".25","advanced_effects":"stagger","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":".1","splittext_stagger_interval":".1"}],"resolution_targeting":"","resolution_targeting_width_min":0,"resolution_targeting_width_max":10000,"event":"waypoints","trigger":".soulmagic-timeline-7148,.soulmagic-timeline-event-big-icons,#animate-icons-event","direction":"","offset":"80%","delay":"0","hover_breakout":false,"options":[]} );
+			SoulMagic_Count++;
+		});
+		// timeline #6932
+		jQuery('.soulmagic-timeline-6932,.soulmagic-timeline-event-graph,#da-graph').each(function(){
+			SoulMagics[ SoulMagic_Count ] = new SoulMagic_Waypoints( this, SoulMagic_Count, {"id":6932,"timeline_slug":"event-graph","steps":[{"selector":".soulmagic-timeline-6932-step-1,.c1,.soulmagic-timeline-event-graph-step-1,.c1","selector_raw":".c1","from":{"autoAlpha":0,"y":"25px","width":"0%","autoRound":false},"from_parent":[],"to":{"autoAlpha":1,"y":"0px","width":"100%","force3D":true,"ease":Sine.easeOut,"autoRound":false},"parent":false,"position":"=0","duration":".15","advanced_effects":"stagger","splittext_parsing":"lines","stagger_legacy":false,"stagger_interval":".15","splittext_stagger_interval":".1"}],"resolution_targeting":"","resolution_targeting_width_min":0,"resolution_targeting_width_max":10000,"event":"waypoints","trigger":".soulmagic-timeline-6932,.soulmagic-timeline-event-graph,#da-graph","direction":"","offset":"80%","delay":".45","hover_breakout":false,"options":[]} );
+			SoulMagic_Count++;
+		});
+	});
+</script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/SoulMagic/assets/libraries/animation.gsap.min.js?ver=5.5.6" id="animgsap-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/SoulMagic/assets/libraries/DrawSVGPlugin.min.js?ver=5.5.6" id="drawSVG-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/SoulMagic/assets/libraries/SplitText.min.js?ver=5.5.6" id="soulmagic_splittext-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.0.12" id="font-awesome-4-shim-js"></script>
+<link rel="https://api.w.org/" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-json/">
+<link rel="alternate" type="application/json" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-json/wp/v2/categories/11">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://davekuhar.github.io/partners-wmif-agenda-21/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.5.6">
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  var loc = window.location.href; // returns the full URL
+  if(/staging/.test(loc)) {
+    $('body').addClass('staging');
+  }
+  if(/sitedistrict/.test(loc)) {
+    $('body').addClass('sitedistrict');
+  }
+  if(/local/.test(loc)) {
+    $('body').addClass('localdev');
+  }
+  if(/cc/.test(loc)) {
+    $('body').addClass('localdev');
+  }
+});
+</script>
+<style type="text/css">body.staging #wpadminbar {
+           		background:rgb(107, 13, 13);
+           }
+           
+           body.sitedistrict #wpadminbar {
+           		background:rgb(0, 38, 163);
+           }
+           
+           body.localdev #wpadminbar {
+           		background:rgb(0, 102, 204);
+           }
+           
+           body.staging #wp-admin-bar-site-name > a.ab-item:after {
+           		content:" - STAGING SITE"
+           }
+           
+           body.sitedistrict #wp-admin-bar-site-name > a.ab-item:after {
+           		content:" - DEV SITE";
+           }
+           
+           body.localdev #wp-admin-bar-site-name > a.ab-item:after {
+           		content:" - LOCALDEV";
+           }</style>
+		<script>
+		(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:1653189,hjsv:5};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+		</script>
+		<style>.dynamic-listing .elementor-column-wrap > .elementor-widget-wrap > :not(.elementor-widget__width-auto):not(.elementor-absolute):not(:last-child):not(.elementor-widget__width-initial).elementor-widget img,.theplus-tabs-wrapper .plus-tabs-nav .plus-tab-header .tab-icon-image{
+width:100%;
+}</style>
+<style>.dynamic-listing .elementor-column-wrap > .elementor-widget-wrap > :not(.elementor-widget__width-auto):not(.elementor-absolute):not(:last-child):not(.elementor-widget__width-initial).elementor-widget img,.theplus-tabs-wrapper .plus-tabs-nav .plus-tab-header .tab-icon-image{
+width:100%;
+}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<link rel="icon" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/2018/08/cropped-favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/2018/08/cropped-favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/2018/08/cropped-favicon-180x180.png">
+<meta name="msapplication-TileImage" content="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/2018/08/cropped-favicon-270x270.png">
+</head>
+
+<body class="archive category category-blog category-11 wp-embed-responsive mt-4409 mt-post-should-tech-entrepreneurs-aspire-to-fix-clinical-trials-or-reinvent-them no-sidebar nav-below-header one-container fluid-header active-footer-widgets-3 nav-aligned-left header-aligned-left dropdown-hover elementor-default elementor-template-full-width elementor-kit-8451 elementor-page-7826 full-width-content" itemtype="https://schema.org/Blog" itemscope>
+	<a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>		<div data-elementor-type="header" data-elementor-id="8840" class="elementor elementor-8840 elementor-location-header" data-elementor-settings="[]">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-58aa239 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="58aa239" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-6619553" data-id="6619553" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-07cf75d elementor-widget elementor-widget-image" data-id="07cf75d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+											<a href="https://davekuhar.github.io/partners-wmif-agenda-21/">
+							<img width="1024" height="1024" src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/2020/09/mgb-logo-color.svg" class="attachment-large size-large" alt="" srcset="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/mgb-logo-color.svg 150w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/mgb-logo-color.svg 300w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/mgb-logo-color.svg 1024w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/mgb-logo-color.svg 1536w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/mgb-logo-color.svg 2048w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/mgb-logo-color.svg 700w" sizes="(max-width: 1024px) 100vw, 1024px">								</a>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-9fd47c9" data-id="9fd47c9" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-58f9909 elementor-widget elementor-widget-heading" data-id="58f9909" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h6 class="elementor-heading-title elementor-size-default">May 19–21, 2021</h6>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d4d1444 elementor-widget elementor-widget-heading" data-id="d4d1444" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">Boston, MA</p>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-ce871cf" data-id="ce871cf" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-68c4960 elementor-widget elementor-widget-image" data-id="68c4960" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+											<a href="https://davekuhar.github.io/partners-wmif-agenda-21/">
+							<img width="1024" height="1024" src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/2020/09/wmif-horizontal.svg" class="attachment-large size-large" alt="" srcset="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/wmif-horizontal.svg 150w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/wmif-horizontal.svg 300w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/wmif-horizontal.svg 1024w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/wmif-horizontal.svg 1536w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/wmif-horizontal.svg 2048w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/09/wmif-horizontal.svg 700w" sizes="(max-width: 1024px) 100vw, 1024px">								</a>
+											</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-360fb3c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="360fb3c" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4501dde" data-id="4501dde" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-d35efb8 elementor-nav-menu__align-center elementor-nav-menu--indicator-classic elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="d35efb8" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;,&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none"><ul id="menu-1-d35efb8" class="elementor-nav-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5945"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/agenda/" class="elementor-item">Agenda</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/speakers/" class="elementor-item">Speakers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/sponsors/" class="elementor-item">Sponsors</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-41">
+<a href="https://davekuhar.github.io/partners-wmif-agenda-21/the-difference/" class="elementor-item">The Difference</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8229"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/first-look/" class="elementor-sub-item">First Look</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8230"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/disruptive-dozen/" class="elementor-sub-item">Disruptive Dozen</a></li>
+</ul>
+</li>
+<li class="hide-me menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/the-forum/" class="elementor-item">The Forum</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8921"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/register/" class="elementor-item">Register</a></li>
+</ul></nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i class="eicon-menu-bar" aria-hidden="true"></i>
+			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true"><ul id="menu-2-d35efb8" class="elementor-nav-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5945"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/agenda/" class="elementor-item">Agenda</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/speakers/" class="elementor-item">Speakers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/sponsors/" class="elementor-item">Sponsors</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-41">
+<a href="https://davekuhar.github.io/partners-wmif-agenda-21/the-difference/" class="elementor-item">The Difference</a>
+<ul class="sub-menu elementor-nav-menu--dropdown">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8229"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/first-look/" class="elementor-sub-item">First Look</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8230"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/disruptive-dozen/" class="elementor-sub-item">Disruptive Dozen</a></li>
+</ul>
+</li>
+<li class="hide-me menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/the-forum/" class="elementor-item">The Forum</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8921"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/register/" class="elementor-item">Register</a></li>
+</ul></nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				</div>
+		</div>
+		
+	<div id="page" class="site grid-container container hfeed grid-parent">
+				<div id="content" class="site-content">
+					<div data-elementor-type="archive" data-elementor-id="7826" class="elementor elementor-7826 elementor-location-archive" data-elementor-settings="[]">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-219442f0 elementor-section-full_width elementor-section-content-top elementor-section-height-default elementor-section-height-default" data-id="219442f0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4a1ebe65" data-id="4a1ebe65" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+					<div class="elementor-background-overlay"></div>
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-4e3be1ea elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-widget elementor-widget-heading" data-id="4e3be1ea" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">Search Results For:</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e4fa1f3 elementor-widget elementor-widget-heading" data-id="e4fa1f3" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Blog</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-4352668c" data-id="4352668c" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-4bb4bca1 elementor-widget elementor-widget-spacer" data-id="4bb4bca1" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-479da2ec elementor-section-full_width elementor-hidden-phone elementor-section-height-default elementor-section-height-default" data-id="479da2ec" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-705dd654 elementor-hidden-phone" data-id="705dd654" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-58c503a5" data-id="58c503a5" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-2093ca8d elementor-widget elementor-widget-spacer" data-id="2093ca8d" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-2cc437c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2cc437c" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-98b6bb5" data-id="98b6bb5" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-1aa5480 hvr-undrln elementor-grid-3 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-widget elementor-widget-archive-posts" data-id="1aa5480" data-element_type="widget" id="search-grid" data-settings="{&quot;archive_classic_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:45,&quot;sizes&quot;:[]},&quot;archive_classic_columns&quot;:&quot;3&quot;,&quot;archive_classic_columns_tablet&quot;:&quot;2&quot;,&quot;archive_classic_columns_mobile&quot;:&quot;1&quot;}" data-widget_type="archive-posts.archive_classic">
+				<div class="elementor-widget-container">
+					<div class="elementor-posts-container elementor-posts elementor-posts--skin-classic elementor-grid">
+				<article class="elementor-post elementor-grid-item post-4409 post type-post status-publish format-standard hentry category-blog category-news tag-ai tag-bwh tag-clinical-trials tag-forbes tag-world-medical-innovation-forum">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/should-tech-entrepreneurs-aspire-to-fix-clinical-trials-or-reinvent-them/">
+				Should Tech Entrepreneurs Aspire To Fix Clinical Trials Or Reinvent Them?			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			May 23, 2018		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>Written by Forbes Contributor David Shaywitz Click here to view full article To fix or to reinvent?  That’s the question many would-be innovators ask as they</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/should-tech-entrepreneurs-aspire-to-fix-clinical-trials-or-reinvent-them/">
+				Learn More			</a>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-4334 post type-post status-publish format-standard hentry category-blog category-news tag-14">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/2018-day-three-recap/">
+				2018 World Forum &#8211; Day Three Recap			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			April 30, 2018		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>&nbsp; Recap | April 25 World Medical Innovation Forum: Artificial Intelligence 1,700 registrants, 140 executive presenters and key leaders shape the future of artificial intelligence!</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/2018-day-three-recap/">
+				Learn More			</a>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-4329 post type-post status-publish format-standard hentry category-blog category-news tag-14">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/2018-day-two-recap/">
+				2018 World Forum &#8211; Day Two Recap			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			April 30, 2018		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>&nbsp; Recap | April 24 The Role of AI in Health Care Accessibility and Drug Discovery A closer look at how to turn the promise</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/2018-day-two-recap/">
+				Learn More			</a>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-4296 post type-post status-publish format-standard hentry category-blog category-news tag-14">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/2018-day-one-recap/">
+				2018 World Forum &#8211; Day One Recap			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			April 24, 2018		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>&nbsp; Recap | April 23 A Sell Out Crowd The fourth annual World Medical Innovation Forum (WMIF) sponsored by Partners Innovation, kicked off Monday morning</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/2018-day-one-recap/">
+				Learn More			</a>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-4179 post type-post status-publish format-standard hentry category-blog category-news">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/partners-sets-the-tone-for-artificial-intelligence-in-healthcare-2/">
+				Partners Sets the Tone for Artificial Intelligence in Healthcare			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			March 22, 2018		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>by Health IT Analytics March 21, 2018 &#8211; Despite the fact that the healthcare industry hit its EHR saturation point some time ago, providers and vendors are</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/partners-sets-the-tone-for-artificial-intelligence-in-healthcare-2/">
+				Learn More			</a>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-4178 post type-post status-publish format-standard hentry category-blog">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/partners-sets-the-tone-for-artificial-intelligence-in-healthcare/">
+				Partners Sets the Tone for Artificial Intelligence in Healthcare			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			March 22, 2018		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>Partners Healthcare, which includes notable facilities such as Massachusetts General Hospital and Brigham and Women&#8217;s Hospital, is taking a leading role as a convener of</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/partners-sets-the-tone-for-artificial-intelligence-in-healthcare/">
+				Learn More			</a>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-3449 post type-post status-publish format-standard hentry category-blog category-news">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/reinventing-cardiovascular-cardiometabolic-care-focus-global-gathering/">
+				Reinventing Cardiovascular and Cardiometabolic Care Focus of Global Gathering			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			May 18, 2017		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>BOSTON&#8211;(BUSINESS WIRE)&#8211;Partners HealthCare, the nation’s largest academic research enterprise, today announced the third annual World Medical Innovation Forum, which will bring together nearly 1,000 international</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/reinventing-cardiovascular-cardiometabolic-care-focus-global-gathering/">
+				Learn More			</a>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-3448 post type-post status-publish format-standard hentry category-blog category-news">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/2017-world-medical-innovation-forum-sets-sights-cardiovascular-innovation/">
+				2017 World Medical Innovation Forum Sets Sights on Cardiovascular Innovation			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			May 18, 2017		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>At the conclusion of the 2017 World Medical Innovation Forum: Cardiovascular, attendees left with a renewed sense of understanding about how the medical and scientific</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/2017-world-medical-innovation-forum-sets-sights-cardiovascular-innovation/">
+				Learn More			</a>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-3141 post type-post status-publish format-standard hentry category-blog category-news">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/world-medical-innovation-forum-2017-future-cardiovascular-care/">
+				World Medical Innovation Forum 2017: The Future of Cardiovascular Care			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			March 20, 2017		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>Anthony Rosenzweig, MD, chief of cardiology and co-director of the Corrigan Minehan Heart Center at MGH, describes a paradox at the center of heart disease.</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/world-medical-innovation-forum-2017-future-cardiovascular-care/">
+				Learn More			</a>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-3140 post type-post status-publish format-standard hentry category-blog category-news">
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://davekuhar.github.io/partners-wmif-agenda-21/calum-macrae-md-phd-one-brave-heart/">
+				Calum MacRae, MD, PhD: One Brave Heart			</a>
+		</h3>
+				<div class="elementor-post__meta-data">
+					<span class="elementor-post-date">
+			March 20, 2017		</span>
+				</div>
+				<div class="elementor-post__excerpt">
+			<p>Musing over the proposal that netted him a $75 million “One Brave Idea” prize from the American Heart Association, Calum MacRae, MD, PhD, recognizing the</p>
+		</div>
+					<a class="elementor-post__read-more" href="https://davekuhar.github.io/partners-wmif-agenda-21/calum-macrae-md-phd-one-brave-heart/">
+				Learn More			</a>
+				</div>
+				</article>
+				</div>
+				<nav class="elementor-pagination" role="navigation" aria-label="Pagination">
+			<span aria-current="page" class="page-numbers current"><span class="elementor-screen-only">Page</span>1</span>
+<a class="page-numbers" href="https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/page/2/"><span class="elementor-screen-only">Page</span>2</a>
+<a class="page-numbers" href="https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/page/3/"><span class="elementor-screen-only">Page</span>3</a>		</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-797af6ac elementor-section-full_width elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle" data-id="797af6ac" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-43261ad1 elementor-invisible" data-id="43261ad1" data-element_type="column" data-settings="{&quot;animation&quot;:&quot;fadeIn&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-3efe253e elementor-align-center elementor-widget-tablet__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-button" data-id="3efe253e" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://wmif20.sitedistrict.com/register/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">Register</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				</div>
+		</div>
+		
+	</div>
+</div>
+
+
+<div class="site-footer">
+			<div data-elementor-type="footer" data-elementor-id="6774" class="elementor elementor-6774 elementor-location-footer" data-elementor-settings="[]">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-9ea06d0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9ea06d0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0ce1d2f" data-id="0ce1d2f" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-e2c6fdd elementor-section-full_width elementor-section-content-middle elementor-section-height-default elementor-section-height-default" data-id="e2c6fdd" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9beb109" data-id="9beb109" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-154bec4 elementor-widget elementor-widget-text-editor" data-id="154bec4" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>Subscribe</p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-178b4ed" data-id="178b4ed" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9f39ea6 footer-subscribe-form elementor-widget elementor-widget-tp-gravityt-form" data-id="9f39ea6" data-element_type="widget" data-widget_type="tp-gravityt-form.default">
+				<div class="elementor-widget-container">
+			<div class="pt_plus_gravity_form ">
+                <div class="gf_browser_unknown gform_wrapper gf_simple_horizontal_wrapper" id="gform_wrapper_4">
+<div id="gf_4" class="gform_anchor" tabindex="-1"></div>
+<form method="post" enctype="multipart/form-data" target="gform_ajax_frame_4" id="gform_4" class="gf_simple_horizontal" action="https://davekuhar.github.io/partners-wmif-agenda-21/category/blog/#gf_4">
+                        <div class="gform_body"><ul id="gform_fields_4" class="gform_fields top_label form_sublabel_below description_below">
+<li id="field_4_1" class="gfield gf_inline field_sublabel_below field_description_below hidden_label gfield_visibility_visible">
+<label class="gfield_label" for="input_4_1">Email</label><div class="ginput_container ginput_container_email">
+                            <input name="input_1" id="input_4_1" type="text" value="" class="medium" placeholder="Email Address" aria-invalid="false">
+                        </div>
+</li>
+                            </ul></div>
+        <div class="gform_footer top_label"> <input type="submit" id="gform_submit_button_4" class="gform_button button" value="SIGN UP" onclick='if(window["gf_submitting_4"]){return false;}  window["gf_submitting_4"]=true;  ' onkeypress='if( event.keyCode == 13 ){ if(window["gf_submitting_4"]){return false;} window["gf_submitting_4"]=true;  jQuery("#gform_4").trigger("submit",[true]); }'> <input type="hidden" name="gform_ajax" value="form_id=4&amp;title=&amp;description=&amp;tabindex=0">
+            <input type="hidden" class="gform_hidden" name="is_submit_4" value="1">
+            <input type="hidden" class="gform_hidden" name="gform_submit" value="4">
+            
+            <input type="hidden" class="gform_hidden" name="gform_unique_id" value="">
+            <input type="hidden" class="gform_hidden" name="state_4" value="WyJbXSIsImQ3NWM4OGIyOThhYTRmMWU3MGJjZmEwOGE2Y2MwNzE4Il0=">
+            <input type="hidden" class="gform_hidden" name="gform_target_page_number_4" id="gform_target_page_number_4" value="0">
+            <input type="hidden" class="gform_hidden" name="gform_source_page_number_4" id="gform_source_page_number_4" value="1">
+            <input type="hidden" name="gform_field_values" value="">
+            
+        </div>
+                        </form>
+                        </div>
+                <iframe style="display:none;width:0px;height:0px;" src="about:blank" name="gform_ajax_frame_4" id="gform_ajax_frame_4" title="This iframe contains the logic required to handle Ajax powered Gravity Forms."></iframe>
+                <script type="text/javascript">jQuery(document).ready(function($){gformInitSpinner( 4, 'https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/gravityforms/images/spinner.gif' );jQuery('#gform_ajax_frame_4').on('load',function(){var contents = jQuery(this).contents().find('*').html();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_4');var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_4').length > 0;var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = form_content.length > 0 && ! is_redirect && ! is_confirmation;var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;if(is_form){jQuery('#gform_wrapper_4').html(form_content.html());if(form_content.hasClass('gform_validation_error')){jQuery('#gform_wrapper_4').addClass('gform_validation_error');} else {jQuery('#gform_wrapper_4').removeClass('gform_validation_error');}setTimeout( function() { /* delay the scroll by 50 milliseconds to fix a bug in chrome */ jQuery(document).scrollTop(jQuery('#gform_wrapper_4').offset().top - mt); }, 50 );if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_4').val();gformInitSpinner( 4, 'https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/gravityforms/images/spinner.gif' );jQuery(document).trigger('gform_page_loaded', [4, current_page]);window['gf_submitting_4'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').html();if(!confirmation_content){confirmation_content = contents;}setTimeout(function(){jQuery('#gform_wrapper_4').replaceWith(confirmation_content);jQuery(document).scrollTop(jQuery('#gf_4').offset().top - mt);jQuery(document).trigger('gform_confirmation_loaded', [4]);window['gf_submitting_4'] = false;}, 50);}else{jQuery('#gform_4').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger('gform_post_render', [4, current_page]);} );} );</script><script type="text/javascript"> jQuery(document).bind('gform_post_render', function(event, formId, currentPage){if(formId == 4) {if(typeof Placeholders != 'undefined'){
+                        Placeholders.enable();
+                    }} } );jQuery(document).bind('gform_post_conditional_logic', function(event, formId, fields, isInit){} );</script><script type="text/javascript"> jQuery(document).ready(function(){jQuery(document).trigger('gform_post_render', [4, 1]) } ); </script>
+</div>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-33f840e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="33f840e" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-48fafd9" data-id="48fafd9" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-fca0531 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="fca0531" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-4f4a366" data-id="4f4a366" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9cba8fa elementor-widget elementor-widget-image" data-id="9cba8fa" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-image">
+										<img width="1024" height="1024" src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/2020/10/mgb-logo-white.svg" class="attachment-large size-large" alt="" srcset="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/10/mgb-logo-white.svg 150w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/10/mgb-logo-white.svg 300w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/10/mgb-logo-white.svg 1024w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/10/mgb-logo-white.svg 1536w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/10/mgb-logo-white.svg 2048w, https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads//2020/10/mgb-logo-white.svg 700w" sizes="(max-width: 1024px) 100vw, 1024px">											</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-8182e91 elementor-widget elementor-widget-text-editor" data-id="8182e91" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix">
+<p>Brigham and Women’s Hospital</p>
+<p>Massachusetts General Hospital</p>
+<p>Massachusetts Eye and Ear</p>
+<p>McLean Hospital</p>
+<p>Spaulding Rehabilitation Network</p>
+</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-9d168bb" data-id="9d168bb" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3fee611" data-id="3fee611" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-8f1172e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8f1172e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-2d1be32" data-id="2d1be32" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-eec173a elementor-widget elementor-widget-text-editor" data-id="eec173a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix">© 2021 Mass General Brigham Incorporated. All Rights Reserved.</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-1528962" data-id="1528962" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9300674 elementor-nav-menu__align-right elementor-nav-menu--dropdown-none elementor-nav-menu--indicator-classic elementor-widget elementor-widget-nav-menu" data-id="9300674" data-element_type="widget" data-settings="{&quot;layout&quot;:&quot;horizontal&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+						<nav role="navigation" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-slide"><ul id="menu-1-9300674" class="elementor-nav-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2604"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/contact-us/" class="elementor-item">Contact Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2603"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/disclaimer/" class="elementor-item">Disclaimer</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5277"><a href="https://www.massgeneralbrigham.org/notices" class="elementor-item">Privacy Policy</a></li>
+</ul></nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i class="eicon-menu-bar" aria-hidden="true"></i>
+			<span class="elementor-screen-only">Menu</span>
+		</div>
+			<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" role="navigation" aria-hidden="true"><ul id="menu-2-9300674" class="elementor-nav-menu">
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2604"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/contact-us/" class="elementor-item">Contact Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2603"><a href="https://davekuhar.github.io/partners-wmif-agenda-21/disclaimer/" class="elementor-item">Disclaimer</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5277"><a href="https://www.massgeneralbrigham.org/notices" class="elementor-item">Privacy Policy</a></li>
+</ul></nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				</div>
+		</div>
+		</div>
+
+		<div data-elementor-type="popup" data-elementor-id="6747" class="elementor elementor-6747 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;fadeIn&quot;,&quot;exit_animation&quot;:&quot;fadeIn&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;0.6&quot;,&quot;sizes&quot;:[]},&quot;prevent_scroll&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}">
+		<div class="elementor-section-wrap">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-dbb2ec4 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="dbb2ec4" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-78e3547" data-id="78e3547" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-83d6904 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="83d6904" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-814fbe2" data-id="814fbe2" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-dccfbef elementor-invisible elementor-widget elementor-widget-text-editor" data-id="dccfbef" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p>the Future of Medicine and AI</p></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-bb327a2 animated-fast elementor-invisible elementor-widget elementor-widget-text-editor" data-id="bb327a2" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInDown&quot;,&quot;_animation_delay&quot;:600}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix">May 11–13, 2020  |  Boston, MA</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-7e496fb elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="7e496fb" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-a005620" data-id="a005620" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-31134dc hvr-undrln elementor-widget__width-initial elementor-widget-tablet__width-inherit elementor-invisible elementor-widget elementor-widget-tp-navigation-menu" data-id="31134dc" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:700}" data-widget_type="tp-navigation-menu.default">
+				<div class="elementor-widget-container">
+					
+		<div class="plus-navigation-wrap text-left nav-menu6158cb61e952631134dc">
+			<div class="plus-navigation-inner menu-hover main-menu-indicator-none sub-menu-indicator-none plus-menu-style-1" data-menu_transition="style-1" data-mobile-menu-click="yes">
+				<div id="theplus-navigation-normal-menu" class="collapse navbar-collapse navbar-ex1-collapse">
+				
+					<div class="plus-navigation-menu menu-vertical  ">
+												<ul id="menu-main-nav" class="nav navbar-nav yamm menu-hover-none  ">
+<li class="menu-item menu-item-type-post_type menu-item-object-page animate-dropdown menu-item-5945 plus-dropdown-menu-"><a title="Agenda" href="https://davekuhar.github.io/partners-wmif-agenda-21/agenda/" data-text="Agenda">Agenda</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page animate-dropdown menu-item-43 plus-dropdown-menu-"><a title="Speakers" href="https://davekuhar.github.io/partners-wmif-agenda-21/speakers/" data-text="Speakers">Speakers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page animate-dropdown menu-item-44 plus-dropdown-menu-"><a title="Sponsors" href="https://davekuhar.github.io/partners-wmif-agenda-21/sponsors/" data-text="Sponsors">Sponsors</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children animate-dropdown menu-item-41 depth-0 dropdown plus-dropdown-menu-">
+<a title="The Difference" href="https://davekuhar.github.io/partners-wmif-agenda-21/the-difference/" class="dropdown-toggle" aria-haspopup="true" data-text="The Difference">The Difference</a>
+<ul role="menu" class=" dropdown-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page animate-dropdown menu-item-8229 plus-dropdown-menu-"><a title="First Look" href="https://davekuhar.github.io/partners-wmif-agenda-21/first-look/" data-text="First Look">First Look</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page animate-dropdown menu-item-8230 plus-dropdown-menu-"><a title="Disruptive Dozen" href="https://davekuhar.github.io/partners-wmif-agenda-21/disruptive-dozen/" data-text="Disruptive Dozen">Disruptive Dozen</a></li>
+</ul>
+</li>
+<li class="hide-me menu-item menu-item-type-post_type menu-item-object-page animate-dropdown menu-item-45 plus-dropdown-menu-"><a title="The Forum" href="https://davekuhar.github.io/partners-wmif-agenda-21/the-forum/" data-text="The Forum">The Forum</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page animate-dropdown menu-item-8921 plus-dropdown-menu-"><a title="Register" href="https://davekuhar.github.io/partners-wmif-agenda-21/register/" data-text="Register">Register</a></li>
+</ul>						
+					</div>
+					
+				</div>
+				
+								
+			</div>
+		</div>
+		 
+		<style>.plus-navigation-wrap.nav-menu6158cb61e952631134dc #theplus-navigation-normal-menu{display: block!important;}</style>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-db29d40" data-id="db29d40" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-04c5e1a elementor-align-right elementor-tablet-align-left elementor-mobile-align-justify elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit elementor-invisible elementor-widget elementor-widget-button" data-id="04c5e1a" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:800}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a href="https://wmif20.sitedistrict.com/register/" class="elementor-button-link elementor-button elementor-size-sm" role="button">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-text">register</span>
+		</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-31598fa elementor-widget__width-initial elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit elementor-search-form--skin-classic elementor-search-form--button-type-icon elementor-search-form--icon-search elementor-invisible elementor-widget elementor-widget-search-form" data-id="31598fa" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:900,&quot;skin&quot;:&quot;classic&quot;}" data-widget_type="search-form.default">
+				<div class="elementor-widget-container">
+					<form class="elementor-search-form" role="search" action="https://davekuhar.github.io/partners-wmif-agenda-21/" method="get">
+									<div class="elementor-search-form__container">
+								<input placeholder="Search..." class="elementor-search-form__input" type="search" name="s" title="Search" value="">
+													<button class="elementor-search-form__submit" type="submit" title="Search" aria-label="Search">
+													<i class="fa fa-search" aria-hidden="true"></i>
+							<span class="elementor-screen-only">Search</span>
+											</button>
+											</div>
+		</form>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-834ed32 elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit animated-fast elementor-shape-rounded elementor-grid-0 elementor-invisible elementor-widget elementor-widget-social-icons" data-id="834ed32" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:1000}" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-social-icons-wrapper elementor-grid">
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-animation-push elementor-repeater-item-2a302d7" href="https://www.youtube.com/channel/UCauKpbsS_hUqQaPp8EVGYOg" target="_blank">
+						<span class="elementor-screen-only">Youtube</span>
+						<i class="fab fa-youtube"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin-in elementor-animation-push elementor-repeater-item-7008f66" href="https://www.linkedin.com/company/partners-healthcare-innovation/" target="_blank">
+						<span class="elementor-screen-only">Linkedin-in</span>
+						<i class="fab fa-linkedin-in"></i>					</a>
+				</div>
+							<div class="elementor-grid-item">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-animation-push elementor-repeater-item-cb7740c" href="https://twitter.com/PHSInnovation" target="_blank">
+						<span class="elementor-screen-only">Twitter</span>
+						<i class="fab fa-twitter"></i>					</a>
+				</div>
+					</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-d18cad5 elementor-widget-tablet__width-initial elementor-widget-mobile__width-inherit animated-fast hvr-undrln elementor-invisible elementor-widget elementor-widget-text-editor" data-id="d18cad5" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;,&quot;_animation_delay&quot;:1100}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-text-editor elementor-clearfix"><p><strong><span style="color: #000000;"><a style="color: #000000;" href="https://wmif20.sitedistrict.com/contact-us/">Contact Us</a></span></strong><br><span style="color: #000000;"><strong><a style="color: #000000;" href="https://davekuhar.github.io/partners-wmif-agenda-21/media/">Media</a></strong></span><br><span style="color: #000000;"><a style="color: #000000;" href="https://innovation.partners.org/">Partners HealthCare Innovation</a></span><br><span style="color: #000000;"><a style="color: #000000;" href="https://www.partners.org/">Partners HealthCare</a></span></p></div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				</div>
+		</div>
+		<link rel="stylesheet" id="gforms_reset_css-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/gravityforms/css/formreset.min.css?ver=2.4.21" media="all">
+<link rel="stylesheet" id="gforms_formsmain_css-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/gravityforms/css/formsmain.min.css?ver=2.4.21" media="all">
+<link rel="stylesheet" id="gforms_ready_class_css-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/gravityforms/css/readyclass.min.css?ver=2.4.21" media="all">
+<link rel="stylesheet" id="gforms_browsers_css-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/gravityforms/css/browsers.min.css?ver=2.4.21" media="all">
+<link rel="stylesheet" id="elementor-icons-fa-solid-css" href="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.12.0" media="all">
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/wp-views/public/js/views-frontend.js?ver=3.3.1" id="views-blocks-frontend-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4" id="jquery-ui-core-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4" id="jquery-ui-widget-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4" id="jquery-ui-mouse-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/jquery/ui/slider.min.js?ver=1.11.4" id="jquery-ui-slider-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/uploads/theplus-addons/theplus.min.js?ver=1633209185" id="theplus-front-js-js"></script>
+<!--[if lte IE 11]>
+<script src='https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/themes/generatepress/assets/js/classList.min.js?ver=3.0.2' id='generate-classlist-js'></script>
+<![endif]-->
+<script id="generate-main-js-extra">
+var generatepressMenu = {"toggleOpenedSubMenus":"1","openSubMenuLabel":"Open Sub-Menu","closeSubMenuLabel":"Close Sub-Menu"};
+</script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/themes/generatepress/assets/js/main.min.js?ver=3.0.2" id="generate-main-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/wp-embed.min.js?ver=5.5.6" id="wp-embed-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.0.1" id="smartmenus-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/imagesloaded.min.js?ver=4.1.4" id="imagesloaded-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.4.21" id="gform_json-js"></script>
+<script id="gform_gravityforms-js-extra">
+var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2},"base_url":"https:\/\/davekuhar.github.io\/partners-wmif-agenda-21\/wp-content\/plugins\/gravityforms","number_formats":[],"spinnerUrl":"https:\/\/davekuhar.github.io\/partners-wmif-agenda-21\/wp-content\/plugins\/gravityforms\/images\/spinner.gif"};
+</script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.4.21" id="gform_gravityforms-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js?ver=2.4.21" id="gform_placeholder-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.0.12" id="elementor-frontend-modules-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.0.5" id="elementor-sticky-js"></script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/davekuhar.github.io\/partners-wmif-agenda-21\/wp-admin\/admin-ajax.php","nonce":"97fac44dfa","i18n":{"toc_no_headings_found":"No headings were found on this page."},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"google":{"title":"Google+","has_counter":true},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"delicious":{"title":"Delicious"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"weixin":{"title":"WeChat"},"weibo":{"title":"Weibo"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/davekuhar.github.io\/partners-wmif-agenda-21\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.0.5" id="elementor-pro-frontend-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4" id="jquery-ui-position-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/dialog/dialog.min.js?ver=4.8.1" id="elementor-dialog-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/swiper/swiper.min.js?ver=5.3.6" id="swiper-js"></script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/lib/share-link/share-link.min.js?ver=3.0.12" id="share-link-js"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"3.0.12","is_static":false,"legacyMode":{"elementWrappers":true},"urls":{"assets":"https:\/\/davekuhar.github.io\/partners-wmif-agenda-21\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"editorPreferences":[]},"kit":{"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":0,"title":"Blog Archives - 2021 World Medical Innovation Forum","excerpt":""}};
+</script>
+<script src="https://davekuhar.github.io/partners-wmif-agenda-21/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.0.12" id="elementor-frontend-js"></script>
+
+</body>
+</html>

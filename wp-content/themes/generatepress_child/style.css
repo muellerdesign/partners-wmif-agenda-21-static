@@ -1,0 +1,283 @@
+/*
+ Theme Name:   GeneratePress Child
+ Theme URI:    https://generatepress.com
+ Description:  Default GeneratePress child theme
+ Author:       Tom Usborne
+ Author URI:   https://tomusborne.com
+ Template:     generatepress
+ Version:      0.1
+*/
+
+/* NOTE: Additional styles may be found in the Customizer or Microthemer. Check the cascade. */
+
+/* speaker lists - pulled from WMIF18
+--------------------------------------------- */
+
+.speaker-head {
+   padding-bottom: 10px;
+}
+
+p.speaker-name {
+	margin-bottom: 0;
+}
+
+.keynoters p {
+	font-size: 16px;
+}
+
+.keynoters {
+	margin-bottom: 20px;
+}
+
+#speaker-list-featured .speaker-short p {
+	font-size: 12px;
+}
+
+input.js-wpv-filter-trigger-delayed {
+    width: 80%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+form.wpv-filter-form input[type="submit"] {
+    width: 18%;
+    float: right;
+    margin-bottom: 20px;
+}
+
+/* sponsors - pulled from WMIF18
+--------------------------------------------- */
+
+.sponsor-featured:before {
+	content: " ";
+	display: table;	
+}
+
+.sponsor-featured:after {
+	clear: both;
+	content: " ";
+	display: table;
+}
+
+.sponsor-featured {
+	margin-bottom: 40px;
+}
+
+h4.sponsor-name {
+	font-size: 18px;
+	margin-bottom: 0;
+}
+
+p.sponsor-name {
+	font-size: 12px;
+	margin-bottom: 0;
+}
+
+.sponsor-featured-logo {
+	width: 300px;
+	min-height: 100px;
+	float: left;
+}
+
+.sponsor-featured-info {
+	width: 630px;
+	float: right;	
+}
+
+.sponsor-strategic {
+	margin: 40px 16px !important;
+	width: 30%;
+	float: left;
+	margin-left: 5%;
+	min-height: 180px;
+}
+
+.sponsor-strategic.first {
+	margin-left: 0;
+}
+
+.sponsor-strategic .sponsor-featured-info {
+	width: 100%;
+	float: none;
+}
+
+.sponsor-featured-info p {
+	font-size: 14px;
+}
+
+.strategic-sponsors {
+	clear: both;
+}
+
+.strategic-sponsors p.sponsor-location, .strategic-sponsors h4.sponsor-name {
+	text-align: center;
+}
+
+h4.sponsor-name a {
+	color: #009ca6;
+}
+
+#strategic-sponsors .sponsor-featured-logo, #collaborate-sponsors .sponsor-featured-logo, #affiliate-sponsors .sponsor-featured-info {
+	text-align: center;
+}
+
+#strategic-sponsors .sponsor-featured-logo {
+	margin: 0 20px 20px;
+}
+
+#strategic-sponsors .sponsor-featured-info {
+	text-align: left;
+}
+
+.single-sponsor header.fl-post-header {
+    display: none;
+}
+
+#collaborate-sponsors .sponsor-url, #strategic-sponsors .sponsor-url	 {
+	text-align: center;
+	display: block;
+	clear: both;
+}
+
+.sponsor-featured-logo {
+	margin-bottom: 20px;
+}
+
+#strategic-sponsors .sponsor-featured-info {
+	display: block;
+	clear: both;
+}
+
+
+/*
+#collaborate-sponsors .sponsor-strategic {
+	min-height: auto;
+}
+*/
+
+#stakeholder, #strategicpartners, #media-partners, #collaborators, #sponsor-opportunities {
+	display: block;
+	clear: both;
+}
+
+#collaborate-sponsors .sponsor-featured-logo img {
+    width: 200px !important;
+}
+
+.js-wpv-layout-responsive hr {
+    display: block;
+    clear: both;
+}
+
+/* events - pulled from WMIF18
+--------------------------------------------- */
+/*.css-events-list {
+	display: none;
+}*/
+
+.the-event:before,
+.event-entry:before,
+#speaker-events:before {
+	content: " ";
+	display: table;
+}
+
+.the-event:after,
+.event-entry:after,
+#speaker-events:after {
+	clear: both;
+	content: " ";
+	display: table;
+}
+
+.the-event {
+	font-size: 14px;
+	font-size: 1.4rem;
+	margin-bottom: 24px;
+}
+
+.event-timeloc {
+    width: 25%;
+    float: left;
+    margin-top: 22px;
+}
+
+.event-details {
+	width: 65%;
+	float: left;
+	margin-left: 20px;
+}
+
+body.single-event h5 {
+	padding-top: 20px;
+}
+
+body.agenda h3 {
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 6px;
+	font-weight: bold;
+	color: #9AA5AE;
+}
+
+body.agenda .event-details h5 {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+body.agenda .event-details h5 a {
+	color: #333F48;
+}
+
+body.agenda .event-details li, body.agenda .event-details .speaker-text {
+	font-size: 14px;
+	font-size: 1.4rem;
+}
+
+body.agenda .event-details .speaker-text {
+	font-weight: bold;
+}
+
+body.agenda .event-details .speaker-meta ul {
+	margin-bottom: 10px;
+}
+
+body.agenda .event-details .speaker-meta li {
+	font-weight: normal;
+	color: #7A8085;
+}
+
+#2015-04-27 {
+	display: block;
+	margin-top: -50px;
+	height: 1px;
+}
+
+.modselect {
+	display: block;
+	padding: 6px 0;
+}
+
+ul.speaker-affils {
+	list-style: none;
+	margin-left: 0;
+}
+
+ul.speaker-affils li {
+	padding-bottom: 10px;
+	text-align: center;
+	line-height: 1.25;
+}
+
+body.single-speakers ul.speaker-affils li {
+	text-align: left;
+}
+
+.speaker-name-small-grid p {
+	line-height: 1.25;
+}
+
+.speaker-title-small-grid ul.speaker-affils {
+	margin-bottom: 1em;
+}
+

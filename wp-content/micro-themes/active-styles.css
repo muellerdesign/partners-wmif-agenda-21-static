@@ -1,0 +1,361 @@
+/*  MICROTHEMER STYLES  */
+
+/*= Full Code Editor CSS ====== */
+
+.footer-subscribe-form .gform_body {
+	width: 75%! important;
+}
+
+.footer-subscribe-form .gform_footer.top_label {
+	width: 25% !important;
+}
+
+.footer-subscribe-form .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+	padding: 12px 8px;
+	background-color: #323e48;
+}
+
+.footer-subscribe-form .pt_plus_gravity_form .gform_wrapper input[type="submit"] {
+	width: auto !important;
+	margin-left: 20px;
+}
+
+@media (max-width: 410px) {
+.footer-subscribe-form .gform_body, .footer-subscribe-form .gform_footer.top_label, .footer-subscribe-form .pt_plus_gravity_form .gform_wrapper input[type="submit"] { width: 100% !important; } .footer-subscribe-form .gform_wrapper .gform_footer { padding-top: 0px; margin-top: 0px; } }
+
+/*= typography ================ */
+
+/** typography >> Heading 1 **/
+h1 {
+	letter-spacing: -2px;
+}
+
+/** typography >> Home special box **/
+.home-special-box {
+	font-family: inherit;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+
+/*= Main Menu ================= */
+
+/** Main Menu >> Main navigationz **/
+#main-navigationz {
+	background-color: rgba(0, 0, 0, 0);
+	-o-transition-property: all;
+	-moz-transition-property: all;
+	-webkit-transition-property: all;
+	transition-property: all;
+	-o-transition-duration: 0.25s;
+	-moz-transition-duration: 0.25s;
+	-webkit-transition-duration: 0.25s;
+	transition-duration: 0.25s;
+	-webkit-transition-timing-function: ease-in;
+	transition-timing-function: ease-in;
+}
+
+/** Main Menu >> Main navigationz _2 **/
+#main-navigationz.elementor-sticky--effects {
+	background-color: rgb(20, 30, 40);
+}
+
+
+/*= Content =================== */
+
+/** Content >> Speaker grid elementor portfolio item title::after **/
+.speaker-grid .elementor-portfolio-item__title::after {
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+	border: 5px solid rgb(255, 208, 64);
+	display: block;
+	content: " view speaker ";
+}
+
+/** Content >> Sponsor toolset sponsor section head **/
+.sponsor-toolset .sponsor-section-head {
+	font-family: myriad-pro,sans-serif;
+	color: rgb(255, 208, 64);
+	font-size: 30px;
+	font-weight: bold;
+	padding-top: 50px;
+	padding-bottom: 10px;
+}
+
+/** Content >> Search grid elementor post read more **/
+#search-grid .elementor-post__read-more {
+	font-size: 16px;
+	letter-spacing: 1px;
+	padding: 15px;
+	margin-top: 0;
+	border: 3px solid rgb(255, 208, 64);
+	-o-transition-property: all;
+	-moz-transition-property: all;
+	-webkit-transition-property: all;
+	transition-property: all;
+	-o-transition-duration: 0.25s;
+	-moz-transition-duration: 0.25s;
+	-webkit-transition-duration: 0.25s;
+	transition-duration: 0.25s;
+}
+
+/** Content >> Search grid elementor post read more Hover **/
+#search-grid .elementor-post__read-more:hover {
+	font-size: 16px;
+	letter-spacing: 1px;
+	background-color: rgb(255, 208, 64);
+	padding: 15px;
+	margin-top: 0;
+	border: 3px solid rgb(255, 208, 64);
+}
+
+/** Content >> Single event speaker grid panel thumb **/
+#single-event-speaker-grid .panel-member {
+	width: 25%;
+	display: inline-block;
+}
+
+/** Content >> Single event grid heading 5 **/
+#single-event-speaker-grid .single-event-grid h5 {
+	font-family: myriad-pro;
+	font-weight: bold;
+}
+
+/** Content >> Speakername link **/
+#single-event-speaker-grid .speakername a {
+	color: rgb(19, 30, 41);
+	font-size: 18px;
+	-o-transition-property: all;
+	-moz-transition-property: all;
+	-webkit-transition-property: all;
+	transition-property: all;
+	-o-transition-duration: 0.25s;
+	-moz-transition-duration: 0.25s;
+	-webkit-transition-duration: 0.25s;
+	transition-duration: 0.25s;
+}
+
+
+/*= Super Hovers ============== */
+
+/** Super Hovers >> Hvr undrln link **/
+.hvr-undrln a {
+	vertical-align: middle;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0);
+	position: relative;
+	display: inline-block;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+}
+
+/** Super Hovers >> Hvr undrln link Before **/
+.hvr-undrln a:before {
+	background: #ffd042;
+	height: 4px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 100%;
+	z-index: -1;
+	-o-transition-property: right;
+	-moz-transition-property: right;
+	-webkit-transition-property: right;
+	transition-property: right;
+	-o-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	content: "";
+	-webkit-transition-property: right;
+	-webkit-transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+}
+
+/** Super Hovers >> Hvr undrln link Before Hover **/
+.hvr-undrln a:hover:before, 
+.hvr-undrln a:focus:before, 
+.hvr-undrln a:active:before {
+	right: 0;
+}
+
+/** Super Hovers >> Input 3 9 **/
+#input_3_9 {
+	padding: 8px 0;
+	margin-top: 20px;
+}
+
+
+/*= Agenda ==================== */
+
+/** Agenda >> Agenda **/
+.agenda {
+	font-family: inherit;
+	padding-top: 50px;
+}
+
+/** Agenda >> Css events list heading 3 **/
+.css-events-list > h3 {
+	font-family: "myriad-pro";
+	color: rgb(255, 208, 64);
+	font-size: 30px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	width: 1040px;
+	margin-right: auto;
+	margin-bottom: 40px;
+	margin-left: auto;
+}
+
+/** Agenda >> The event **/
+.the-event {
+	font-family: "myriad-pro";
+	width: 1040px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/** Agenda >> Event timeloc bold **/
+.event-timeloc b {
+	font-family: "myriad-pro";
+	color: rgb(0, 0, 0);
+	font-size: 24px;
+}
+
+/** Agenda >> Event timeloc **/
+.event-timeloc {
+	color: rgb(0, 114, 151);
+	font-size: 20px;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-right: 50px;
+}
+
+/** Agenda >> Heading 3 link:(1) **/
+.event-details > h3 > a {
+	font-family: "myriad-pro";
+	color: rgb(0, 114, 151);
+	font-size: 50px;
+	line-height: 70px;
+	font-weight: bold;
+	padding-left: 0;
+}
+
+/** Agenda >> Event details unordered list **/
+.event-details ul {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+/** Agenda >> Speaker text link **/
+.speaker-text a {
+	color: rgb(0, 114, 151);
+	font-weight: bold;
+}
+
+/** Agenda >> Paragraph link **/
+.event-details > p > a {
+	color: rgb(0, 114, 151);
+	font-weight: bold;
+}
+
+/** Agenda >> Hospital network span **/
+.hospital-network span {
+	padding: 0 6px 0 6px;
+}
+
+/** Agenda >> Sponsors section head **/
+.sponsors-section-head {
+	color: #003a96;
+	font-size: 40px !important;
+	font-weight: 100;
+}
+
+/** Agenda >> Sponsor name link **/
+h4.sponsor-name a {
+	color: #009ca6;
+}
+
+
+/*( Elementor Tablet )*/
+@media (max-width: 1024px) {
+
+	/*= typography ================ */
+
+	/** typography >> Home special box **/
+	.home-special-box {
+	font-size: 30px;
+}
+
+
+}
+
+
+/*( Elementor Mobile )*/
+@media (max-width: 767px) {
+
+	/*= typography ================ */
+
+	/** typography >> Home special box **/
+	.home-special-box {
+	font-size: 24px;
+}
+
+	/** typography >> Heading 1 **/
+	h1 {
+	font-size: 55px;
+}
+
+	/** typography >> Heading 3 **/
+	h3 {
+	font-size: 38px;
+}
+
+
+}
+
+
+/*( Big Monitor )*/
+@media (min-width: 1799px) {
+
+	/*= Homepage / Super Generic == */
+
+	/** Homepage / Super Generic >> Elementor elementelementor element 91f16b4 elementor element populated **/
+	.hero-side-bigmons-left .elementor-column-wrap {
+	padding-left: 39% !important;
+}
+
+
+	/*= Content =================== */
+
+	/** Content >> Sponsor toolset sponsor section head **/
+	.sponsor-toolset .sponsor-section-head {
+	
+}
+
+
+}
+
+
+/*( Semi Big Monitor )*/
+@media (max-width: 1799px) and (min-width: 1599px) {
+
+	/*= Homepage / Super Generic == */
+
+	/** Homepage / Super Generic >> Elementor elementelementor element 91f16b4 elementor element populated **/
+	.hero-side-bigmons-left .elementor-column-wrap {
+	padding-left: 30% !important;
+}
+
+
+}
+
